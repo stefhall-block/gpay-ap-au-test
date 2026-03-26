@@ -1,4 +1,4 @@
-# Google Pay Gateway - Australia Region Support Implementation Plan
+# Google Pay Gateway - Australia Expansion Implementation Plan
 
 **Project:** Enable Google Pay Gateway for Australia Paylater  
 **Epic:** Multi-Region Support for Google Pay Gateway  
