@@ -63,24 +63,10 @@ Enable Google Pay Gateway integration to support Australian merchants using Afte
 
 ---
 
-# 🎫 JIRA Tickets Breakdown
 
----
+## Phase 1: Quick Win (Sprint 1)
 
-## EPIC: [GPAY-XXX] Enable Australia Region Support for Google Pay Gateway
-
-**Epic Description:**
-Enable Google Pay Gateway to support Australian merchants using Afterpay Paylater. Currently hardcoded to US region only.
-
-**Business Value:** Unlock AU market for Google Pay + Paylater integration
-
-**Technical Summary:** Add region field to merchant data model and update checkout flow to use merchant-specific region routing.
-
----
-
-## 📦 Phase 1: Quick Win (Sprint 1)
-
-### Story 1: [GPAY-001] Add Feature Flag for AU Region Testing
+### Story 1: Add Feature Flag for AU Region Testing
 
 **Story Points:** 2  
 **Priority:** High  
@@ -123,7 +109,7 @@ GetCheckoutResponse getCheckoutResponse = afterpayApiGateway.getCheckoutByToken(
 
 ---
 
-### Story 2: [GPAY-002] Sandbox Testing with AU Merchant
+### Story 2: Sandbox Testing with AU Merchant
 
 **Story Points:** 3  
 **Priority:** High  
@@ -131,6 +117,7 @@ GetCheckoutResponse getCheckoutResponse = afterpayApiGateway.getCheckoutByToken(
 
 **Description:**
 As a QA engineer, I want to test the complete checkout flow with an AU merchant in sandbox to validate the integration works end-to-end.
+We will do this with a Gpay Test merchant similar to how we have this constructed in admin portal in Production-US. There is one singular MID, that serves as an umbrella MID for all corresponding merchants onboarded by GPay.
 
 **Acceptance Criteria:**
 - [ ] AU test merchant created in sandbox
@@ -179,9 +166,9 @@ As a tech lead, I want to document the feature flag approach and its limitations
 
 ---
 
-## 🏗️ Phase 2: Production Solution (Sprint 2-3)
+## Phase 2: Production Solution (Sprint 2-3)
 
-### Story 4: [GPAY-004] Add Region Field to Merchant Data Model
+### Story 4: Add Region Field to Merchant Data Model
 
 **Story Points:** 5  
 **Priority:** High  
@@ -259,7 +246,7 @@ public record MerchantDto(
 
 ---
 
-### Story 5: [GPAY-005] Update Merchant Onboarding to Require Region
+### Story 5: Update Merchant Onboarding to Require Region
 
 **Story Points:** 3  
 **Priority:** High  
@@ -304,7 +291,7 @@ As a backend engineer, I want to update merchant onboarding to require and valid
 
 ---
 
-### Story 6: [GPAY-006] Update CheckoutResourceManager to Use Merchant Region
+### Story 6:  Update CheckoutResourceManager to Use Merchant Region
 
 **Story Points:** 3  
 **Priority:** High  
@@ -374,7 +361,7 @@ private ReadCardResponse processCardConfirmation(
 
 ---
 
-### Story 7: [GPAY-007] Add Region-Specific Integration Tests
+### Story 7: Add Region-Specific Integration Tests
 
 **Story Points:** 5  
 **Priority:** High  
@@ -432,7 +419,7 @@ As a QA engineer, I want comprehensive integration tests for multi-region suppor
 
 ---
 
-### Story 8: [GPAY-008] Backfill Existing Merchants with Region Data
+### Story 8: Backfill Existing Merchants with Region Data
 
 **Story Points:** 3  
 **Priority:** Medium  
@@ -697,35 +684,6 @@ As an SRE, I want to monitor the production deployment for 72 hours to ensure st
 - [ ] No critical issues found
 - [ ] Post-deployment report created
 
-**Monitoring Dashboard:**
-```
-Google Pay Gateway - Multi-Region Monitoring
-
-┌─────────────────────────────────────────┐
-│ Region Distribution                      │
-│ US:  85% ████████████████████           │
-│ AU:  15% ███                            │
-└─────────────────────────────────────────┘
-
-┌─────────────────────────────────────────┐
-│ Success Rate (Last 24h)                 │
-│ US:  99.8% ✓                            │
-│ AU:  99.7% ✓                            │
-└─────────────────────────────────────────┘
-
-┌─────────────────────────────────────────┐
-│ Latency (p95)                           │
-│ US:  450ms ✓                            │
-│ AU:  480ms ✓                            │
-└─────────────────────────────────────────┘
-
-┌─────────────────────────────────────────┐
-│ Error Rate                              │
-│ US:  0.2% ✓                             │
-│ AU:  0.3% ✓                             │
-└─────────────────────────────────────────┘
-```
-
 **Alerts to Configure:**
 - Error rate >5% (P1)
 - Latency >1000ms (P2)
@@ -748,7 +706,7 @@ Google Pay Gateway - Multi-Region Monitoring
 
 ---
 
-## 📈 Success Metrics
+## Success Metrics
 
 ### Technical Metrics
 | Metric | Target | Measurement |
@@ -768,7 +726,7 @@ Google Pay Gateway - Multi-Region Monitoring
 
 ---
 
-## 🚧 Risks & Mitigation
+## Risks & Mitigation
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
@@ -799,7 +757,7 @@ Google Pay Gateway - Multi-Region Monitoring
 
 ---
 
-## 📅 Timeline & Milestones
+## Timeline & Milestones
 
 ```
 Week 1-2: Phase 1 - Quick Win
