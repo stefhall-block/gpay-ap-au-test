@@ -4,7 +4,7 @@
 **Epic:** Multi-Region Support for Google Pay Gateway  
 **Priority:** High  
 **Target Release:** Q2 2026  
-**Owner:** [Team Name]  
+**Owner:** Commerce Payments/ Merchant Services 
 **Created:** March 25, 2026
 
 ---
